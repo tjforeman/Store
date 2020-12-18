@@ -1,5 +1,4 @@
 import React from 'react'
-// import '../Styles/homepage.scss'
 
 import Directory from '../Directory/Directory'
 
