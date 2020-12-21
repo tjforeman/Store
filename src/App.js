@@ -9,9 +9,15 @@ import Header from "./Components/Header/Header.jsx";
 import Auth from "./Components/Pages/Auth.jsx";
 import Checkout from "./Components/Checkout/Checkout";
 
-import { auth, createUserProfileDocument } from "./Firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+  // addCollectionAndDocuments,
+} from "./Firebase/firebase.utils";
+
 import { setCurrentUser } from "./Redux/user/user.actions";
 import { selectCurrentUser } from "./Redux/user/user.selector";
+// import { selectCollectionsForPreview } from "./Redux/shop/shopSelectors";
 
 import "./App.css";
 
@@ -19,7 +25,7 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser, collectionsArray } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -38,6 +44,10 @@ class App extends React.Component {
         });
 
         setCurrentUser(userAuth);
+        // addCollectionAndDocuments(
+        //   "collection",
+        //   collectionsArray.map(({ title, items }) => ({ title, items }))
+        // );
       }
     });
   }
