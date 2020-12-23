@@ -34,11 +34,12 @@ class SignUp extends Component {
         password
       );
 
-      this.setState({ 
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",})
+      this.setState({
+        displayName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
 
       createUserProfileDocument(user, { displayName });
     } catch (error) {
@@ -46,11 +47,11 @@ class SignUp extends Component {
     }
   };
 
-  handleChange = event => {
-      const {name,value} = event.target;
+  handleChange = (event) => {
+    const { name, value } = event.target;
 
-      this.setState({ [name]: value })
-  }
+    this.setState({ [name]: value });
+  };
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
