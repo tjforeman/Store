@@ -8,16 +8,16 @@ import CustomButton from "../Custom-button/CustomButton";
 import { auth, signInWithGoogle } from "../../Firebase/firebase.utils";
 
 const SignIn = () => {
-  const[auth, setAuth] = useState({email: '', password: ''})
+  const[userCredentials, setUserCredentials] = useState({email: '', password: ''})
   
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { email, password } = auth
+    const { email, password } = userCredentials;
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      setAuth({ email: "", password: "" });
+      setUserCredentials({ email: "", password: "" });
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +26,7 @@ const SignIn = () => {
   const handleChange = (event) => {
     const { value, name } = event.target;
 
-    setAuth({...auth, [name]: value });
+    setUserCredentials({...userCredentials, [name]: value });
   };
   
     return (
@@ -38,7 +38,7 @@ const SignIn = () => {
           <FormInput
             name="email"
             type="email"
-            value={auth.email}
+            value={userCredentials.email}
             label="email"
             handleChange={handleChange}
             required
@@ -46,7 +46,7 @@ const SignIn = () => {
           <FormInput
             name="password"
             type="password"
-            value={auth.password}
+            value={userCredentials.password}
             label="password"
             handleChange={handleChange}
             required
