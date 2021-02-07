@@ -9,7 +9,6 @@ import Header from "./Components/Header/Header.jsx";
 import Auth from "./Components/Pages/Auth.jsx";
 import Checkout from "./Components/Checkout/Checkout";
 
-import { setCurrentUser } from "./Redux/user/user.actions";
 import { selectCurrentUser } from "./Redux/user/user.selector";
 import { checkUserSession } from "./Redux/user/user.actions";
 

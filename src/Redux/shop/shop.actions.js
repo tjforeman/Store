@@ -4,7 +4,7 @@ import {
   firestore,
   convertCollectionsSnapshotToMap,
 } from "../../Firebase/firebase.utils";
-import shopReducer from "./shopReducer";
+// import shopReducer from "./shopReducer";
 
 export const fetchCollectionsStart = () => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_START,
